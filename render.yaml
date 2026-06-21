@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: kaviya-portfolio
+    env: static
+    buildCommand: npm run build
+    publishPath: dist
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: max-age=31536000

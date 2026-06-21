@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  --color-electric-cyan: #00B8D9;
+  --color-psychic-pink: #E91E8C;
+  --color-grass-green: #2ECC71;
+  --color-amber-glow: #FF9F1C;
+  --color-poison-purple: #9B5DE5;
+  --color-bg-dark: #FFFBF5;  /* Soft light cream background */
+  --color-bg-deep: #FAF7F2;  /* Slightly darker warm off-white */
+  --color-charcoal: #1A1A2E; /* Primary readable text color */
+  
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-mono-tech: "Share Tech Mono", monospace;
+  --font-sans: "Inter", sans-serif;
+}
+
+/* Custom styles and scrollbar overrides */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #FFFBF5;
+  }
+  
+  body {
+    background-color: #FFFBF5;
+    color: #1A1A2E;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  /* Custom Glow Scrollbar (Light Theme Version) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF7F2;
+    border-left: 1px solid rgba(0, 184, 217, 0.1);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00B8D9, #E91E8C);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00B8D9;
+    box-shadow: 0 0 8px #00B8D9;
+  }
+}
+
+/* Custom Neon Glow Utilities for Light Mode Cards */
+.shadow-neon-cyan {
+  box-shadow: 0 4px 15px rgba(0, 184, 217, 0.08), 0 0 10px rgba(0, 184, 217, 0.1);
+  border-color: rgba(0, 184, 217, 0.2) !important;
+}
+.shadow-neon-pink {
+  box-shadow: 0 4px 15px rgba(233, 30, 140, 0.08), 0 0 10px rgba(233, 30, 140, 0.1);
+  border-color: rgba(233, 30, 140, 0.2) !important;
+}
+.shadow-neon-green {
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.08), 0 0 10px rgba(46, 204, 113, 0.1);
+  border-color: rgba(46, 204, 113, 0.2) !important;
+}
+
+.shadow-neon-cyan-pulse {
+  animation: cyan-pulse 3s infinite ease-in-out;
+}
+.shadow-neon-pink-pulse {
+  animation: pink-pulse 3s infinite ease-in-out;
+}
+.shadow-neon-green-pulse {
+  animation: green-pulse 3s infinite ease-in-out;
+}
+
+@keyframes cyan-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(0, 184, 217, 0.06), 0 0 6px rgba(0, 184, 217, 0.08);
+    border-color: rgba(0, 184, 217, 0.18);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(0, 184, 217, 0.12), 0 0 14px rgba(0, 184, 217, 0.18);
+    border-color: rgba(0, 184, 217, 0.45);
+  }
+}
+
+@keyframes pink-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(233, 30, 140, 0.06), 0 0 6px rgba(233, 30, 140, 0.08);
+    border-color: rgba(233, 30, 140, 0.18);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(233, 30, 140, 0.12), 0 0 14px rgba(233, 30, 140, 0.18);
+    border-color: rgba(233, 30, 140, 0.45);
+  }
+}
+
+@keyframes green-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.06), 0 0 6px rgba(46, 204, 113, 0.08);
+    border-color: rgba(46, 204, 113, 0.18);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.12), 0 0 14px rgba(46, 204, 113, 0.18);
+    border-color: rgba(46, 204, 113, 0.45);
+  }
+}
+
+/* Glassmorphism styling (Light Cream Mode) */
+.glassmorphism {
+  background: rgba(255, 251, 245, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Scanline grid for Pokémon loading console overlay */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+.scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0) 50%, rgba(26, 26, 46, 0.04) 50%), linear-gradient(90deg, rgba(0, 184, 217, 0.02), rgba(233, 30, 140, 0.01), rgba(46, 204, 113, 0.02));
+  z-index: 99;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+
+.scanline-flicker {
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.99; }
+  50% { opacity: 0.985; }
+  100% { opacity: 0.995; }
+}
+
+/* Glitch text effect */
+.glitch-text {
+  text-shadow: 0.05em 0 0 rgba(233, 30, 140, 0.4),
+               -0.025em -0.05em 0 rgba(0, 184, 217, 0.4),
+               0.025em 0.05em 0 rgba(46, 204, 113, 0.4);
+  animation: glitch 5s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(233, 30, 140, 0.4), -0.025em -0.05em 0 rgba(0, 184, 217, 0.4), 0.025em 0.05em 0 rgba(46, 204, 113, 0.4);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(233, 30, 140, 0.4), -0.025em -0.05em 0 rgba(0, 184, 217, 0.4), 0.025em 0.05em 0 rgba(46, 204, 113, 0.4);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(233, 30, 140, 0.4), 0.025em 0.025em 0 rgba(0, 184, 217, 0.4), -0.05em -0.05em 0 rgba(46, 204, 113, 0.4);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(233, 30, 140, 0.4), 0.025em 0.025em 0 rgba(0, 184, 217, 0.4), -0.05em -0.05em 0 rgba(46, 204, 113, 0.4);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(233, 30, 140, 0.4), 0.05em 0 0 rgba(0, 184, 217, 0.4), 0 -0.05em 0 rgba(46, 204, 113, 0.4);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(233, 30, 140, 0.4), 0.05em 0 0 rgba(0, 184, 217, 0.4), 0 -0.05em 0 rgba(46, 204, 113, 0.4);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(233, 30, 140, 0.4), -0.025em -0.025em 0 rgba(0, 184, 217, 0.4), -0.025em -0.05em 0 rgba(46, 204, 113, 0.4);
+  }
+}
