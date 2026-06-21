@@ -27,13 +27,13 @@ export function About() {
     },
     { 
       label: 'Academic CGPA', 
-      value: 8.8, 
-      decimals: 1, 
+      value: 8.78, 
+      decimals: 2, 
       suffix: ' / 10', 
       icon: <GraduationCap className="text-grass-green" size={20} />, 
       color: 'shadow-neon-green border-grass-green/20 text-grass-green',
       max: 10,
-      xpPercent: 88,
+      xpPercent: 87.8,
       xpColor: 'bg-grass-green'
     },
     { 
@@ -55,7 +55,7 @@ export function About() {
       institution: 'Sri Venkateswara College of Engineering (SVCE)',
       location: 'Sriperumbudur, Tamil Nadu',
       date: '2024 – 2028',
-      score: 'CGPA: 8.8',
+      score: 'CGPA: 8.78',
       stageLabel: 'Evolved Form',
       stageColor: 'bg-electric-cyan/10 border-electric-cyan/30 text-electric-cyan',
       mapUrl: 'https://maps.google.com/maps?q=Sri%20Venkateswara%20College%20of%20Engineering,%20Pennalur,%20Sriperumbudur&t=&z=14&ie=UTF8&iwloc=&output=embed',
@@ -86,8 +86,8 @@ export function About() {
       icon: <School size={18} className="text-grass-green" />,
       rankBadges: [
         { title: '12th: 93%', rank: 'Group Topper', color: 'border-grass-green/30 text-grass-green bg-grass-green/5' },
-        { title: '11th: 96%', rank: 'School First', color: 'border-psychic-pink/30 text-psychic-pink bg-psychic-pink/5' },
-        { title: '10th: 97%', rank: 'School First', color: 'border-electric-cyan/30 text-electric-cyan bg-electric-cyan/5' }
+        { title: '11th: 95.5%', rank: 'School First', color: 'border-psychic-pink/30 text-psychic-pink bg-psychic-pink/5' },
+        { title: '10th: 96.4%', rank: 'School First', color: 'border-electric-cyan/30 text-electric-cyan bg-electric-cyan/5' }
       ]
     }
   ];

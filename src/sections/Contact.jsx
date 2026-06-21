@@ -52,36 +52,35 @@ export function Contact() {
     setStatus({ type: 'info', text: 'CONNECTING TO OUTGOING SMTP CONSOLE...' });
 
     const templateParams = {
-      from_name: formData.name,
-      reply_to: formData.email,
-      message: formData.message,
-      to_email: 'wmkavyababu@gmail.com'
+      name: formData.name,
+      email: formData.email,
+      message: formData.message
     };
 
     emailjs.send(
-      'service_portfolio', 
-      'template_portfolio', 
+      'service_hcbab88',
+      'template_f8unquq',
       templateParams,
-      'user_dummy_public_key'
+      'ayLSSyoxicJE0EuVE'
     )
-    .then(() => {
-      setIsSubmitting(false);
-      playSuccess();
-      setStatus({
-        type: 'success',
-        text: 'TRANSMISSION COMPLETE. INBOX DISPATCH VERIFIED!'
+      .then(() => {
+        setIsSubmitting(false);
+        playSuccess();
+        setStatus({
+          type: 'success',
+          text: "Message sent successfully! I'll get back to you soon."
+        });
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch((error) => {
+        setIsSubmitting(false);
+        playError();
+        setStatus({
+          type: 'error',
+          text: 'Something went wrong — please try again or email directly at wmkavyababu@gmail.com.'
+        });
+        console.error('EmailJS error:', error);
       });
-      setFormData({ name: '', email: '', message: '' });
-    })
-    .catch((error) => {
-      setIsSubmitting(false);
-      playError();
-      setStatus({
-        type: 'error',
-        text: 'Contact form is being set up — please reach out directly via email or phone below.'
-      });
-      console.error('EmailJS error:', error);
-    });
   };
 
   const handleMailtoFallback = () => {
@@ -93,12 +92,12 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative py-24 px-6 border-b border-gray-200 scroll-mt-16 bg-[#FAF7F2]">
-      
+
       {/* Visual coordinates scan line */}
       <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-electric-cyan/10 to-transparent" />
 
       <div className="max-w-5xl mx-auto relative z-10">
-        
+
         {/* Section Header */}
         <div className="mb-20 text-left">
           <span className="font-mono-tech text-[10px] uppercase tracking-widest text-electric-cyan">★ BEAM DATA TRANSMISSIONS</span>
@@ -109,7 +108,7 @@ export function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left">
-          
+
           {/* Left Column: Info Cards */}
           <div className="lg:col-span-5 space-y-6">
             <h3 className="font-orbitron font-semibold text-lg text-electric-cyan tracking-wider uppercase mb-8">
@@ -164,13 +163,13 @@ export function Contact() {
           <div className="lg:col-span-7">
             <div className="glassmorphism border border-gray-200 rounded-2xl p-6 md:p-8 relative">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-psychic-pink/20 to-transparent" />
-              
+
               <h3 className="font-orbitron font-semibold text-base text-psychic-pink tracking-wider uppercase mb-6 flex items-center gap-2">
                 <Mailbox size={16} /> Write console message:
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-5 font-sans">
-                
+
                 {/* Form fields */}
                 <div className="space-y-1">
                   <label htmlFor="name" className="text-[10px] font-mono-tech text-gray-500 uppercase tracking-widest">
@@ -219,15 +218,14 @@ export function Contact() {
 
                 {/* Submissions Alerts */}
                 {status.text && (
-                  <div className={`p-3.5 rounded border text-[11px] font-mono-tech leading-relaxed ${
-                    status.type === 'success'
-                      ? 'bg-grass-green/5 border-grass-green/30 text-grass-green'
-                      : status.type === 'error'
+                  <div className={`p-3.5 rounded border text-[11px] font-mono-tech leading-relaxed ${status.type === 'success'
+                    ? 'bg-grass-green/5 border-grass-green/30 text-grass-green'
+                    : status.type === 'error'
                       ? 'bg-psychic-pink/5 border-psychic-pink/30 text-psychic-pink'
                       : 'bg-electric-cyan/5 border-electric-cyan/30 text-electric-cyan'
-                  }`}>
+                    }`}>
                     {status.text}
-                    
+
                     {/* Mailto fallback pathway links */}
                     {status.type === 'success' && (
                       <div className="mt-2 text-gray-400">
@@ -254,7 +252,7 @@ export function Contact() {
                     <Send size={12} />
                     {isSubmitting ? 'DISPATCHING...' : 'SEND MESSAGE'}
                   </button>
-                  
+
                   <button
                     type="button"
                     onClick={handleMailtoFallback}

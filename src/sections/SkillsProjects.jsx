@@ -216,7 +216,7 @@ export function SkillsProjects() {
       description: 'Full-featured banking application with secure user authentication, account management, deposits, withdrawals, loans, and an admin dashboard. Secured with token-based REST APIs and efficient file-based (.dat) data storage.',
       tech: ['C++', 'Crow Framework', 'JavaScript', 'HTML/CSS', 'CMake'],
       github: 'https://github.com/wmkavyababu-netizen/Praveen_Bank',
-      live: 'https://wmkavyababu-netizen.github.io/Praveen_Bank/'
+      live: 'https://praveen-bank.onrender.com/'
     },
     {
       title: 'Interface2007',
@@ -224,7 +224,7 @@ export function SkillsProjects() {
       description: 'A comprehensive student platform that integrates coding assessments, programming challenges, multiple-choice evaluations, academic resources, and development tools within a unified dashboard to enhance learning, practice, and technical skill development.',
       tech: ['React.js', 'JavaScript', 'HTML/CSS'],
       github: 'https://github.com/wmkavyababu-netizen/Interface2007',
-      live: 'https://wmkavyababu-netizen.github.io/Interface2007/'
+      live: 'https://interface2007.onrender.com'
     },
     {
       title: 'DSC Grading Portal',
